@@ -57,35 +57,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
-function game() {
-    let playerWins = 0;
-    let computerWins = 0;
-    let playerChoice, computerChoice, result;
-
-
-    for (let i = 0; i < 5; i++) {
-        playerChoice = prompt("Select Rock, Paper or Scissors.");
-        computerChoice = getComputerChoice();
-        result = playRound(playerChoice, computerChoice);
-        if (result === 2) {
-            playerWins++;
-        } else if (result === 1) {
-            computerWins++;
-        } else {
-            computerWins = computerWins + 0;
-        }
-    }
-
-    if (playerWins > computerWins) {
-        console.log('You win!');
-    } else if (computerWins > playerWins) {
-        console.log('You lose!');
-    } else {
-        console.log(`It's a tie!`);
-    }
-}
-
 function updateScore(value) {
     if (value === 2) {
         playerWins++;
@@ -98,6 +69,16 @@ function updateScore(value) {
     }
 }
 
+function checkScore(playerScore, computerScore) {
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore > computerScore) {
+            result.textContent = `You win the game!`;
+        } else {
+            result.textContent = `You lose the game!`;
+        } 
+    }
+}
+
 const result = document.querySelector('.results');
 const player = document.querySelector('.player');
 const computer = document.querySelector('.computer');
@@ -107,18 +88,22 @@ rock.addEventListener('click', () => {
     roundWinner = playRound('Rock', getComputerChoice());
     // Update score based on winner of round
     updateScore(roundWinner);
+    // Check score for a winner
+    checkScore(playerWins, computerWins);
 });
 
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', () => {
-    playRound('Paper', getComputerChoice());
+    roundWinner = playRound('Paper', getComputerChoice());
     updateScore(roundWinner);
+    checkScore(playerWins, computerWins);
 });
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () => {
-    playRound('Paper', getComputerChoice());
+    roundWinner = playRound('Paper', getComputerChoice());
     updateScore(roundWinner);
+    checkScore(playerWins, computerWins);
 });
 
 
