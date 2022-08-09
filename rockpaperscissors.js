@@ -10,9 +10,8 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
     switch (playerSelection) {
-        case 'rock':
+        case 'Rock':
             if (computerSelection === 'Rock') {
                 console.log(`It's a tie!`);
                 return 0;
@@ -24,7 +23,7 @@ function playRound(playerSelection, computerSelection) {
                 return 2;
             }
             break;
-        case 'paper':
+        case 'Paper':
             if (computerSelection === 'Paper') {
                 console.log(`It's a tie!`);
                 return 0;
@@ -36,7 +35,7 @@ function playRound(playerSelection, computerSelection) {
                 return 2;
             }
             break;
-        case 'scissors':
+        case 'Scissors':
             if (computerSelection === 'Scissors') {
                 console.log(`It's a tie!`);
                 return 0;
