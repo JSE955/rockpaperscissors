@@ -2,6 +2,7 @@ let playerWins = 0;
 let computerWins = 0;
 let roundWinner;
 
+// Determines computer's choice when playing a round.
 function getComputerChoice() {
     let value = Math.floor(Math.random() * 3);
     if (value === 0) {
@@ -13,6 +14,7 @@ function getComputerChoice() {
     }
 }
 
+// Plays a round of Rock, Paper, Scissors and determines a winner.
 function playRound(playerSelection, computerSelection) {
     switch (playerSelection) {
         case 'Rock':
@@ -57,6 +59,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+// Updates score based on player win, loss or a tie.
 function updateScore(value) {
     if (value === 2) {
         playerWins++;
@@ -69,6 +72,7 @@ function updateScore(value) {
     }
 }
 
+// Checks the current score and determines winner of game if necessary.
 function checkScore(playerScore, computerScore) {
     if (playerScore === 5 || computerScore === 5) {
         if (playerScore > computerScore) {
@@ -86,9 +90,7 @@ const computer = document.querySelector('.computer');
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
     roundWinner = playRound('Rock', getComputerChoice());
-    // Update score based on winner of round
     updateScore(roundWinner);
-    // Check score for a winner
     checkScore(playerWins, computerWins);
 });
 
