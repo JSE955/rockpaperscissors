@@ -10,7 +10,18 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let choice = parseInt(prompt("Choose 1 for Rock, 2 for Paper, 3 for Scissors"));
+    let promptUser = true;
+    let choice;
+    while (promptUser) {
+        choice = parseInt(prompt("Choose 1 for Rock, 2 for Paper, 3 for Scissors"));
+        if (choice !== 1 && choice !== 2 && choice !== 3) {
+            alert("Invalid choice. Choose again.");
+            continue;
+        } else {
+            promptUser = false;
+        }
+    }
+    
     switch (choice) {
         case 1:
             return "rock";
@@ -20,9 +31,6 @@ function getHumanChoice() {
             break;
         case 3:
             return "scissors";
-            break;
-        default:
-            return "Invalid choice";
             break;
     }
 }
