@@ -30,39 +30,16 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let promptUser = true;
-    let choice;
-    while (promptUser) {
-        choice = parseInt(prompt("Choose 1 for Rock, 2 for Paper, 3 for Scissors"));
-        if (choice !== 1 && choice !== 2 && choice !== 3) {
-            alert("Invalid choice. Choose again.");
-            continue;
-        } else {
-            promptUser = false;
-        }
-    }
-    
-    switch (choice) {
-        case 1:
-            return "rock";
-            break;
-        case 2:
-            return "paper";
-            break;
-        case 3:
-            return "scissors";
-            break;
-    }
-}
-
 function checkForWinner() {
+    if (humanScore < 5 && computerScore < 5) {
+        return;
+    }
     if (humanScore > computerScore) {
-        console.log("You win!");
+        results.textContent = "You win the game!";
     } else if (humanScore < computerScore) {
-        console.log("You lose!");
+        results.textContent = "You lose the game!";
     } else {
-        console.log("It's a tie! Game over!");
+        results.textContent = "It's a tie! Game over!";
     }
 }
 
@@ -102,7 +79,7 @@ function playRound(humanChoice, computerChoice) {
             results.textContent = "It's a tie!";
         }
     }
-
     updateScoreDisplay();
+    checkForWinner();
 }
 
