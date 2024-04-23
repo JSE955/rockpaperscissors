@@ -4,6 +4,7 @@ let computerScore = 0;
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
+const results = document.querySelector(".results");
 
 rockButton.addEventListener("click", () => {
     playRound("rock", getComputerChoice());
@@ -67,33 +68,33 @@ function checkForWinner() {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         if (computerChoice === "paper") {
-            console.log("You lose! Paper beats Rock!");
+            results.textContent = "You lose! Paper beats Rock!";
             computerScore++;
         } else if (computerChoice === "scissors") {
-            console.log("You win! Rock beats Scissors!");
+            results.textContent = "You win! Rock beats Scissors!"
             humanScore++;
         } else {
-            console.log("It's a tie!");
+            results.textContent = "It's a tie!";
         }
     } else if (humanChoice === "paper") {
         if (computerChoice === "scissors") {
-            console.log("You lose! Scissors beats Paper!");
+            results.textContent = "You lose! Scissors beats Paper!";
             computerScore++;
         } else if (computerChoice === "rock") {
-            console.log("You win! Paper beats Rock!");
+            results.textContent = "You win! Paper beats Rock!";
             humanScore++;
         } else {
-            console.log("It's a tie!");
+            results.textContent = "It's a tie!";
         }
     } else if (humanChoice === "scissors") {
         if (computerChoice === "rock") {
-            console.log("You lose! Rock beats Scissors!");
+            results.textContent = "You lose! Rock beats Scissors!";
             computerScore++;
         } else if (computerChoice === "paper") {
-            console.log("You win! Scissors beats Paper!");
+            results.textContent = "You win! Scissors beats Paper!";
             humanScore++;
         } else {
-            console.log("It's a tie!");
+            results.textContent = "It's a tie!";
         }
     }
 }
