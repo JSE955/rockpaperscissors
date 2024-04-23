@@ -9,6 +9,14 @@ rockButton.addEventListener("click", () => {
     playRound("rock", getComputerChoice());
 })
 
+paperButton.addEventListener("click", () => {
+    playRound("paper", getComputerChoice());
+})
+
+scissorsButton.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
+})
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if (choice === 0) {
