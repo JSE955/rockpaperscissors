@@ -1,5 +1,5 @@
 # rockpaperscissors
 
-Simple Rock/Paper/Scissors console application built using Javascript.
+Simple Rock/Paper/Scissors game built using HTML and DOM manipulation using JavaScript.
 
-All game details are displayed in the console.
+Adapted from console application to application using crude user interface.
